@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Modal, Button } from 'react-bootstrap';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../components/Students.css';
 const StudentComp = () => {
     const { date, courseName } = useParams();
     const [studentList, setStudentList] = useState([]);
@@ -61,7 +62,7 @@ const StudentComp = () => {
                     std_id: student[0],
                     std_name: student[1],
                     date: new Date(date).toISOString().split('T')[0],
-                    attendanceStatus: attendanceStatus,
+                    attendanceStaus: attendanceStatus,
                     course_name: courseName,
                 };
             } else {
@@ -80,6 +81,7 @@ const StudentComp = () => {
                 .then((response) => {
                     console.log('Attendance marked successfully:', response.data);
                     openAlertModal('Attendance marked successfully.');
+                    navigate('/F7');
                 })
                 .catch((error) => {
                     openAlertModal("The given date and course name is already marked attendance");
@@ -91,36 +93,52 @@ const StudentComp = () => {
 
     const handleBack = () => {
         // Redirect to CourseListComp
-        navigate('/');
+        navigate('/F7');
+    };
+
+    const tableStyle = {
+        backgroundColor: '#e8f4f9',
     };
 
     return (
-        <div>
-            <h2>Attendance for {courseName} on {new Date(date).toLocaleDateString()}</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Student Name</th>
-                        <th>{new Date(date).toLocaleDateString()}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {studentList.map((student) => (
-                        <tr key={student[0]}>
-                            <td>{student[0]}</td>
-                            <td>{student[1]}</td>
-                            <td>
-                                <input type="radio" name={`attendance-${student[0]}`} value="P" /> Present
-                                <input type="radio" name={`attendance-${student[0]}`} value="A" /> Absent
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-            <button type="button" onClick={handleBack}>Back to Course List</button>
-            {" "}
-            <button type="button" onClick={openAttendanceModal}>Submit</button>
+        <div className='container-fluid stdC d-flex align-items-center justify-content-center'>
+            <div className='stdC'>
+                <div className='text-center'>
+                    <h2>Attendance for {courseName}</h2>
+                    <table className='table table-striped  table-bordered' style={tableStyle}>
+                        <thead className='thead-dark'>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>{new Date(date).toLocaleDateString()}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {studentList.map((student) => (
+                                <tr key={student[0]}>
+                                    <td>{student[0]}</td>
+                                    <td>{student[1]}</td>
+                                    <td>
+                                        <div className="form-check form-check-inline">
+                                            <input className="form-check-input" type="radio" name={`attendance-${student[0]}`} value="P" id={`present-${student[0]}`} />
+                                            <label className="form-check-label" htmlFor={`present-${student[0]}`}>Present</label>
+                                        </div>
+                                        <div className="form-check form-check-inline">
+                                            <input className="form-check-input" type="radio" name={`attendance-${student[0]}`} value="A" id={`absent-${student[0]}`} />
+                                            <label className="form-check-label" htmlFor={`absent-${student[0]}`}>Absent</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+
+                    <br />
+                    <button type="button" className="btn btn-secondary" onClick={handleBack}>Back to Course List</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" className="btn btn-primary" onClick={openAttendanceModal}>Submit</button>
+                </div>
+            </div>
 
             {/* Bootstrap Modal for Attendance Confirmation */}
             <Modal show={isAttendanceModalOpen} onHide={closeAttendanceModal} centered>

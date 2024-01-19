@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
+import '../components/Course.css';
 
 const CourseListComp = () => {
   const [course, setCourse] = useState([]);
@@ -22,6 +23,7 @@ const CourseListComp = () => {
       .get('http://localhost:8080/courses/all')
       .then((res) => {
         setCourse(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.error('Error fetching course data:', err);
@@ -75,7 +77,7 @@ const CourseListComp = () => {
       return;
     }
 
-    if (validDate) {
+    else if (validDate) {
       navigate(`/studentComp/${selectedDate.toISOString()}/${courseName}`);
     } else {
       openModal('Please select a valid date within the course duration.');
@@ -96,20 +98,20 @@ const CourseListComp = () => {
     setModalOpen(false);
   };
 
-  return (
+  return ( 
     <div>
       <div className='container-fluid CourseLC'>
-        <div className='CourseLC2' style={{border: '1px solid #ddd', padding: '10px', width: '400px',height:'500px'}}>
+        <div className='CourseLC2' style={{border: '1px solid #ddd', padding: '10px', width: '550px',height:'500px'}}>
 
       <h2 className="text-center m-4">Mark Attendance</h2>
         <form className='form-group' style={{textAlign:'left'}}>
          
-          <div  className="form-group">
+          <div>
 
           
-          <label htmlFor="cname">
+          <label htmlFor="cname"></label>
             Select Course :
-            <select name="courseName" id="cname" onChange={handleCourseChange}>
+            <select  name="courseName" id="cname" onChange={handleCourseChange}>
               <option value="">Select a Course</option>
               {course.map((course) => (
                 <option key={course.course_id} value={course.course_name}>
@@ -117,9 +119,9 @@ const CourseListComp = () => {
                 </option>
               ))}
             </select>
-          </label>
+          
           </div><br/>
-          <div className="form-group ">
+          <div >
             <label htmlFor="mname">Select Module :</label>
             <select name="moduleName" id="mname">
               <option value="">Select a module</option>
@@ -132,7 +134,7 @@ const CourseListComp = () => {
             </select>
           </div><br/>
 
-          <div className="form-group ">
+          <div>
             <label htmlFor="date">Date : </label>
             <input
               type="date"
@@ -154,7 +156,7 @@ const CourseListComp = () => {
       {/* Bootstrap Modal */}
       <Modal show={isModalOpen} onHide={closeModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Alert</Modal.Title>
+          <Modal.Title></Modal.Title>
         </Modal.Header>
         <Modal.Body>{modalMessage}</Modal.Body>
       </Modal>

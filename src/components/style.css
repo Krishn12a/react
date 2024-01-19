@@ -1,0 +1,238 @@
+:root{
+    --background:  #e8f4f9;  /*#ADD8E6,#e8f4f9,#f8fbfd*/
+    --text-color: #003060; /*#003060,#72A0C1*/
+}
+.header{
+    background-color: var(--background);
+}
+/* .HCourseB{
+    background-color: #58d4c9;
+} */
+/* style for feedback starts */
+.Fform{
+    background-color: var(--background);
+    color: var(--text-color);
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Fform {
+    width: 100%; 
+  }
+  /* DataDisplay.css */
+
+/* Styles for the data display container */
+.data-display-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styles for the table container */
+  .table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  /* Styles for the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    padding: 12px;
+    border: 1px solid #000;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Styles for responsive design */
+  @media screen and (max-width: 768px) {
+    table th,
+    table td {
+      padding: 8px;
+      font-size: 12px;
+    }
+  }
+  /* input label style.css */
+.custom-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #E5E4E2;
+}
+
+.custom-input {
+  padding-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #003060;
+}
+.fform{
+  background-color: #f8fbfd;
+  padding: 40px;
+  border-radius: 10px;
+  /* border: 1px solid #003060; */
+}
+  /* style for feedback Ends */
+.menu-color,.UserFeedback{
+    color: var(--text-color);
+    font-weight: 500;
+    font-size:18px;
+}
+.header img{
+    width: 110px;
+    height: 40px;
+}
+.hero-container, footer{
+    background-color: var(--background);
+}
+.hcourse{
+    background-color: var(--background);
+}
+.hero-text h1 span, .hero-text p {
+    color: var(--text-color);
+}
+/* our student review style */
+.healthy,.testimonial{  
+    background-color: var(--background);
+}
+.UserFeedback,.AdminFeedback{
+    background-color: var(--background);
+}
+.search-form {
+    width: 500px; 
+}  
+.footer{
+    background-color: #003060;/*#003060,#72A0C1*/
+    color: white;
+}
+.sidebar .nav {
+    padding: 0px !important;
+}
+
+.sidebar ul li a:hover{
+    background-color: var(--text-color);
+}
+
+
+/* ================================================== */
+
+body
+{
+	color:#868686;
+	/* background-color: #e17272; */
+	opacity: 1;
+	background-size: 100%;
+  overflow:scroll;
+}
+
+a
+{
+	cursor:pointer;
+}
+
+p
+{
+	padding-bottom:1rem;
+}
+
+h5
+{
+  text-transform:uppercase;
+	font-weight:bold;
+	color:#2b2b2b;
+}
+
+.box-shadow
+{
+	-webkit-box-shadow: 0 1px 1px rgba(72,78,85,.6);
+	box-shadow: 0 1px 1px rgba(72,78,85,.6);
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+
+.box-shadow:hover
+{
+	-webkit-box-shadow: 0 20px 40px rgba(72,78,85,.6);
+	box-shadow: 0 20px 40px rgba(72,78,85,.6);
+	-webkit-transform: translateY(-15px);
+	-moz-transform: translateY(-15px);
+	-ms-transform: translateY(-15px);
+	-o-transform: translateY(-15px);
+	transform: translateY(-15px);
+}
+
+#card
+{
+	border-radius: 25px;
+	
+}
+
+#card img
+{
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+
+#card svg
+{
+	position:absolute;
+	top:19rem;
+  -webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	filter:drop-shadow(2px -9px 4px rgba(0, 69, 134, 0.2));
+}
+#card:hover svg
+{
+	filter:drop-shadow(2px -9px 4px rgba(0, 69, 134, 0.4));
+}
+
+#i
+{
+	position:absolute;
+	top: 3rem;
+	right: 31rem;
+	color: black;
+	font-size:4rem;
+	background: rgba(226, 221, 223, 0.3);
+	/* background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(211,210,231,1) 19%, rgba(11,39,73,1) 100%); */
+	padding: 1rem;
+	border-radius: 100%;
+	transition: all .5s ease-in-out;
+  transform: rotate(-10deg);
+}
+
+.card:hover #i
+{
+	transform: rotate(-30deg);
+}
+
+#i:hover
+{
+	box-shadow: rgba(2, 196, 255, 0.25) 0px 30px 60px -12px inset, rgba(255, 2, 204, 0.7) 0px 18px 36px -18px inset;
+}
+
+/* =============================================================== */
+
+

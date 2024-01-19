@@ -37,74 +37,7 @@
   }
 }
 
-/* santhoshhh styles starts here */
-/* body {
-  font-family: 'Arial', sans-serif;
-  background-color:   #003060;
-} */
-.CourseLC{
-  background-color:   #003060;
-}
-.CourseLC2{
+.stdC {
+  width: 80%; /* Adjust the width as needed */
   background-color:    #e8f4f9;
 }
-
-.container-fluid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.form-container {
-  border: 1px solid #ddd;
-  padding: 20px;
-  width: 400px;
-  height: 500px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form {
-  text-align: left;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-select,
-input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Modal Styles */
-.modal-content {
-  padding: 20px;
-}
-
-/* Add any additional styles as needed */
-
